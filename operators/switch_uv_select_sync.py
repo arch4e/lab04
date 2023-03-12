@@ -49,9 +49,11 @@ class SwitchUVSelectSync(bpy.types.Operator):
 
 def backup_selected_loops_from_bmesh():
     backup_data = []
-    for i in range(len(bpy.context.selected_objects)):
+    mesh_objects = get_selected_mesh_objects()
+
+    for i in range(len(mesh_objects)):
         backup_data.append([])
-        obj = bpy.context.selected_objects[i]
+        obj = mesh_objects[i]
         bm = bmesh.new()
         bm = bmesh.from_edit_mesh(obj.data)
         loops = [loop for face in bm.faces for loop in face.loops]
@@ -63,18 +65,28 @@ def backup_selected_loops_from_bmesh():
 
 def backup_selected_loops_from_uv_layer():
     backup_data = []
-    for i in range(len(bpy.context.selected_objects)):
-        backup_data.append([])
-        obj = bpy.context.selected_objects[i]
+    mesh_objects = get_selected_mesh_objects()
 
-        for j in range(len(obj.data.uv_layers.active.data.items())):
-            backup_data[i].append(obj.data.uv_layers.active.data[j].select)
+    for i in range(len(mesh_objects)):
+        backup_data.append([])
+        obj = mesh_objects[i]
+
+        if hasattr(obj.data, "uv_layers"):
+            for j in range(len(obj.data.uv_layers.active.data.items())):
+                backup_data[i].append(obj.data.uv_layers.active.data[j].select)
 
     return backup_data
 
+def get_selected_mesh_objects():
+    mesh_objects = list(filter(lambda x: x.type == "MESH", bpy.context.selected_objects))
+    return mesh_objects
+
+
 def restore_selected_loops_to_bmesh(source_data):
-    for i in range(len(bpy.context.selected_objects)):
-        obj = bpy.context.selected_objects[i]
+    mesh_objects = get_selected_mesh_objects()
+
+    for i in range(len(mesh_objects)):
+        obj = mesh_objects[i]
         bm = bmesh.new()
         bm = bmesh.from_edit_mesh(obj.data)
         loops = [loop for face in bm.faces for loop in face.loops]
@@ -93,8 +105,11 @@ def restore_selected_loops_to_bmesh(source_data):
         bm.select_flush_mode()
 
 def restore_selected_loops_to_uv_layer(source_data):
-    for i in range(len(bpy.context.selected_objects)):
-        obj = bpy.context.selected_objects[i]
+    mesh_objects = get_selected_mesh_objects()
 
-        for j in range(len(obj.data.uv_layers.active.data.items())):
-            obj.data.uv_layers.active.data[j].select = source_data[i][j]
+    for i in range(len(mesh_objects)):
+        obj = mesh_objects[i]
+
+        if hasattr(obj.data, "uv_layers"):
+            for j in range(len(obj.data.uv_layers.active.data.items())):
+                obj.data.uv_layers.active.data[j].select = source_data[i][j]
