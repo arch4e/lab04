@@ -1,4 +1,4 @@
-# Lab 04
+# Lab. 04
 
 Blender Utility
 
@@ -7,7 +7,7 @@ Blender Utility
 1. Download this add-on in zip
 1. Import to Blender
    * `Edit >> Preferences >> Add-ons >> Install` 
-1. Enable `Lab 04` 
+1. Enable `Lab. 04` 
 
 ## License
 

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 bl_info = {
-    "name"    : "Lab 04",
+    "name"    : "Lab. 04",
     "category": "3D View",
     "location": "",
-    "version" : (0,1),
+    "version" : (0,3,0),
     "blender" : (3,0,0),
     "author"  : "ShioN"
 }
