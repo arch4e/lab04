@@ -4,7 +4,7 @@ bl_info = {
     "name"    : "Lab. 04",
     "category": "3D View",
     "location": "",
-    "version" : (0,3,0),
+    "version" : (0,3,1),
     "blender" : (3,0,0),
     "author"  : "ShioN"
 }

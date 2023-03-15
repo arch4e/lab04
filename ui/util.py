@@ -12,5 +12,5 @@ class UtilPanel(_BasePanel, bpy.types.Panel):
 
     def draw(self, context):
         col = self.layout.column()
-        col.operator("lab04.match_mesh_name_with_outliner", text="match mesh name")
+        col.operator("lab04.match_data_names_with_obj_names", text="match data names")
 
