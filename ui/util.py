@@ -13,4 +13,6 @@ class UtilPanel(_BasePanel, bpy.types.Panel):
     def draw(self, context):
         col = self.layout.column()
         col.operator("lab04.match_data_names_with_obj_names", text="match data names")
+        col.separator(factor=1.0)
+        col.operator("lab04.set_params", text="set sharp").tag = "set_sharp"
 
