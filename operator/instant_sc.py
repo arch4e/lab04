@@ -1,8 +1,6 @@
 import bpy
 
-from .register import registerdcr
 
-@registerdcr
 class InstantSC_1(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_1"
     bl_label  = "instant short cut - 1"
@@ -15,7 +13,7 @@ class InstantSC_1(bpy.types.Operator):
             print(e)
             return { "CANCELLED" }
 
-@registerdcr
+
 class InstantSC_2(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_2"
     bl_label  = "instant short cut - 2"
@@ -28,7 +26,7 @@ class InstantSC_2(bpy.types.Operator):
             print(e)
             return { "CANCELLED" }
 
-@registerdcr
+
 class InstantSC_3(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_3"
     bl_label  = "instant short cut - 3"
@@ -41,14 +39,18 @@ class InstantSC_3(bpy.types.Operator):
             print(e)
             return { "CANCELLED" }
 
+
 def instant_sc_1():
     print("instant_sc_1")
     # edit here
+
 
 def instant_sc_2():
     print("instant_sc_2")
     # edit here
 
+
 def instant_sc_3():
     print("instant_sc_3")
     # edit here
+

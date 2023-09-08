@@ -1,9 +1,7 @@
 import bpy
 import bmesh
 
-from .register import registerdcr
 
-@registerdcr
 class SwitchUVSelectSync(bpy.types.Operator):
     bl_idname = "lab04.switch_uv_select_sync"
     bl_label  = "switch uv select sync"
@@ -47,6 +45,7 @@ class SwitchUVSelectSync(bpy.types.Operator):
             print(e)
             return { "CANCELLED" }
 
+
 def backup_selected_loops_from_bmesh():
     backup_data = []
     mesh_objects = get_selected_mesh_objects()
@@ -58,10 +57,11 @@ def backup_selected_loops_from_bmesh():
         bm = bmesh.from_edit_mesh(obj.data)
         loops = [loop for face in bm.faces for loop in face.loops]
 
-        for l in loops:
-            backup_data[i].append(l.vert.select)
+        for _loop in loops:
+            backup_data[i].append(_loop.vert.select)
 
     return backup_data
+
 
 def backup_selected_loops_from_uv_layer():
     backup_data = []
@@ -76,6 +76,7 @@ def backup_selected_loops_from_uv_layer():
                 backup_data[i].append(obj.data.uv_layers.active.data[j].select)
 
     return backup_data
+
 
 def get_selected_mesh_objects():
     mesh_objects = list(filter(lambda x: x.type == "MESH", bpy.context.selected_objects))
@@ -104,6 +105,7 @@ def restore_selected_loops_to_bmesh(source_data):
 
         bm.select_flush_mode()
 
+
 def restore_selected_loops_to_uv_layer(source_data):
     mesh_objects = get_selected_mesh_objects()
 
@@ -113,3 +115,4 @@ def restore_selected_loops_to_uv_layer(source_data):
         if hasattr(obj.data, "uv_layers"):
             for j in range(len(obj.data.uv_layers.active.data.items())):
                 obj.data.uv_layers.active.data[j].select = source_data[i][j]
+
