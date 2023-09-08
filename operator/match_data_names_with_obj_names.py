@@ -1,8 +1,6 @@
 import bpy
 
-from .register import registerdcr
 
-@registerdcr
 class MatchDataNameWithObjNames(bpy.types.Operator):
     bl_idname = "lab04.match_data_names_with_obj_names"
     bl_label  = "match data names with object names"
@@ -16,3 +14,4 @@ class MatchDataNameWithObjNames(bpy.types.Operator):
         except Exception as e:
             print(e)
             return { "CANCELLED" }
+
