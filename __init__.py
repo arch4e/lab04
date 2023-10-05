@@ -6,10 +6,15 @@ import bpy
 #
 from .operator.instant_sc import InstantSC_1, InstantSC_2, InstantSC_3
 from .operator.match_data_names_with_obj_names import MatchDataNameWithObjNames
+from .operator.regex_rename import OPR_RegExRename
+from .property.regex_rename import PRP_RegExRename
 from .operator.switch_uv_select_sync import SwitchUVSelectSync
 from .operator.weight_paint import ChangeVTXGWeight, SetVTXGWeight
 from .ui.common import Lab04Panel
+from .ui.regex_rename import RegExRenamePanel
 from .ui.weight_paint import WeightSetterPanel
+from .util.props_register import register as props_register, unregister as props_unregister
+
 
 #
 # addon information
@@ -31,10 +36,13 @@ classes = [
     InstantSC_2,
     InstantSC_3,
     MatchDataNameWithObjNames,
+    OPR_RegExRename,
+    PRP_RegExRename,
     SetVTXGWeight,
     SwitchUVSelectSync,
     # UI
     Lab04Panel,
+    RegExRenamePanel,
     WeightSetterPanel
 ]
 
@@ -52,6 +60,8 @@ def register():
     try:
         for cls in classes:
             bpy.utils.register_class(cls)
+
+        props_register()
     except Exception as e:
         print("error: registration failed")
         print(repr(e))
@@ -62,6 +72,8 @@ def unregister():
     try:
         for cls in classes:
             bpy.utils.unregister_class(cls)
+
+        props_unregister()
     except Exception:
         print("error: unregistration failed")
         pass
