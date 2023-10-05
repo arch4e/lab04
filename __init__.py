@@ -7,7 +7,9 @@ import bpy
 from .operator.instant_sc import InstantSC_1, InstantSC_2, InstantSC_3
 from .operator.match_data_names_with_obj_names import MatchDataNameWithObjNames
 from .operator.switch_uv_select_sync import SwitchUVSelectSync
+from .operator.weight_paint import ChangeVTXGWeight, SetVTXGWeight
 from .ui.common import Lab04Panel
+from .ui.weight_paint import WeightSetterPanel
 
 #
 # addon information
@@ -24,13 +26,16 @@ bl_info = {
 
 classes = [
     # Operator
+    ChangeVTXGWeight,
     InstantSC_1,
     InstantSC_2,
     InstantSC_3,
     MatchDataNameWithObjNames,
+    SetVTXGWeight,
     SwitchUVSelectSync,
     # UI
-    Lab04Panel
+    Lab04Panel,
+    WeightSetterPanel
 ]
 
 
