@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import bpy
 
-from ..property.regex_rename import PRP_RegExRename
+from ..property.vertex_group import PRP_RegExRenameVG
 
 
 properties = {
     bpy.types.Scene: {
-        "wpu_regex_rename": bpy.props.PointerProperty(type=PRP_RegExRename)
+        "lab04_regex_rename": bpy.props.PointerProperty(type=PRP_RegExRenameVG)
     }
 }
 

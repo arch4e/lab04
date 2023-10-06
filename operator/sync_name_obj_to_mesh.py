@@ -1,9 +1,9 @@
 import bpy
 
 
-class MatchDataNameWithObjNames(bpy.types.Operator):
-    bl_idname = "lab04.match_data_names_with_obj_names"
-    bl_label  = "match data names with object names"
+class OPR_SyncNameObjToMesh(bpy.types.Operator):
+    bl_idname = "lab04.sync_name_object_to_mesh"
+    bl_label  = "sync name object to mesh"
 
     def execute(self, context):
         try:

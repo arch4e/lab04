@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 import bpy
 
+
 #
 # import local modules
 #
-from .operator.instant_sc import InstantSC_1, InstantSC_2, InstantSC_3
-from .operator.match_data_names_with_obj_names import MatchDataNameWithObjNames
-from .operator.regex_rename import OPR_RegExRename
-from .property.regex_rename import PRP_RegExRename
-from .operator.switch_uv_select_sync import SwitchUVSelectSync
-from .operator.weight_paint import ChangeVTXGWeight, SetVTXGWeight
-from .ui.common import Lab04Panel
-from .ui.regex_rename import RegExRenamePanel
-from .ui.weight_paint import WeightSetterPanel
+from .operator.instant_sc import OPR_InstantSC_1, OPR_InstantSC_2, OPR_InstantSC_3
+from .operator.switch_uv_select_sync import OPR_SwitchUVSelectSync
+from .operator.sync_name_obj_to_mesh import OPR_SyncNameObjToMesh
+from .operator.vertex_group import OPR_ChangeVGWeight, OPR_RegExRenameVG, OPR_SetVGWeight
+from .property.vertex_group import PRP_RegExRenameVG
+from .ui.common import UI_SharedPanel
+from .ui.vertex_group import UI_VertexGroups, UI_RegExRenameVG
 from .util.props_register import register as props_register, unregister as props_unregister
 
 
@@ -30,20 +29,18 @@ bl_info = {
 
 
 classes = [
-    # Operator
-    ChangeVTXGWeight,
-    InstantSC_1,
-    InstantSC_2,
-    InstantSC_3,
-    MatchDataNameWithObjNames,
-    OPR_RegExRename,
-    PRP_RegExRename,
-    SetVTXGWeight,
-    SwitchUVSelectSync,
-    # UI
-    Lab04Panel,
-    RegExRenamePanel,
-    WeightSetterPanel
+    UI_RegExRenameVG,
+    UI_SharedPanel,
+    UI_VertexGroups,
+    OPR_ChangeVGWeight,
+    OPR_InstantSC_1,
+    OPR_InstantSC_2,
+    OPR_InstantSC_3,
+    OPR_RegExRenameVG,
+    OPR_SetVGWeight,
+    OPR_SwitchUVSelectSync,
+    OPR_SyncNameObjToMesh,
+    PRP_RegExRenameVG,
 ]
 
 

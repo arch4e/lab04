@@ -2,7 +2,7 @@ import bpy
 import bmesh
 
 
-class SwitchUVSelectSync(bpy.types.Operator):
+class OPR_SwitchUVSelectSync(bpy.types.Operator):
     bl_idname = "lab04.switch_uv_select_sync"
     bl_label  = "switch uv select sync"
 

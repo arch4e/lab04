@@ -1,7 +1,7 @@
 import bpy
 
 
-class InstantSC_1(bpy.types.Operator):
+class OPR_InstantSC_1(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_1"
     bl_label  = "instant short cut - 1"
 
@@ -14,7 +14,7 @@ class InstantSC_1(bpy.types.Operator):
             return { "CANCELLED" }
 
 
-class InstantSC_2(bpy.types.Operator):
+class OPR_InstantSC_2(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_2"
     bl_label  = "instant short cut - 2"
 
@@ -27,7 +27,7 @@ class InstantSC_2(bpy.types.Operator):
             return { "CANCELLED" }
 
 
-class InstantSC_3(bpy.types.Operator):
+class OPR_InstantSC_3(bpy.types.Operator):
     bl_idname = "lab04.instant_sc_3"
     bl_label  = "instant short cut - 3"
 
