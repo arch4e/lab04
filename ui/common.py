@@ -11,14 +11,13 @@ class BasePanel(object):
         return True
 
 
-class Lab04Panel(BasePanel, bpy.types.Panel):
-    bl_idname  = "VIEW3D_PT_lab04_util"
+class UI_SharedPanel(BasePanel, bpy.types.Panel):
+    bl_idname  = "VIEW3D_PT_lab04_ui_util"
     bl_label   = "Lab. 04"
     bl_context = ""
     bl_options = {"HEADER_LAYOUT_EXPAND"}
 
     def draw(self, context):
         col = self.layout.column()
-        col.label
-        col.operator("lab04.match_data_names_with_obj_names", text="match data names")
+        col.operator("lab04.sync_name_object_to_mesh", text="sync name (obj. to mesh)")
 
